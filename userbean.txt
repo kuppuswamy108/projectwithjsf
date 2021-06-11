@@ -1,0 +1,322 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package managedbean;
+
+/**
+ *
+ * @author kuppuswamy.annadurai
+ */
+
+
+import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import javax.annotation.PostConstruct;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.ManagedProperty;
+import javax.faces.bean.RequestScoped;
+import javax.faces.component.html.HtmlOutputText;
+import javax.faces.event.ComponentSystemEvent;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+import sun.util.calendar.LocalGregorianCalendar.Date;
+
+
+@ManagedBean
+@RequestScoped
+
+public class user {
+    
+  @ManagedProperty(value="#{mysessionbean}")
+    mysessionbean mysessionbean=new mysessionbean();
+
+    public mysessionbean getMysessionbean() {
+        return mysessionbean;
+    }
+
+    public void setMysessionbean(mysessionbean mysessionbean) {
+        this.mysessionbean = mysessionbean;
+    }
+    
+     public Date date;
+
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+  
+    
+    public int mark;
+
+    public int getMark() {
+        return mark;
+    }
+
+    public void setMark(int mark) {
+        this.mark = mark;
+    }
+
+    
+    
+    public void colorme(ComponentSystemEvent cse)
+    {
+        HtmlOutputText outputtext=( HtmlOutputText) cse.getComponent();
+        int value=Integer.parseInt(outputtext.getValue().toString());
+        if(value==50)
+        {
+            outputtext.setStyle("color:blue");
+        }
+        
+        
+    }
+    
+    
+    
+    
+    
+    
+    
+    @NotNull(message="name must be required")
+    String name;
+    
+    @NotNull(message = "Mobile can't be empty")  
+    @Size(min = 10, max = 10, message = "Mobile must have 10 digits")  
+    String phonenum;
+     String mail1;
+    String password;
+    
+    
+    String plap;
+
+    public String getPlap() {
+        return plap;
+    }
+
+    public void setPlap(String plap) {
+        this.plap = plap;
+    }
+
+    
+   
+    public String page1() {
+        
+      return "index";
+        
+        
+   }
+    
+    public int c12;
+
+    public int getC12() {
+        return c12;
+    }
+
+    public void setC12(int c12) {
+        this.c12 = c12;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  public  double num;
+
+    public double getNum() {
+        return num;
+    }
+
+    public void setNum(double num) {
+        this.num = num;
+    }
+    
+  public   int num1;
+
+    public int getNum1() {
+        return num1;
+    }
+
+    public void setNum1(int num1) {
+        this.num1 = num1;
+    }
+   
+
+   
+    
+     @NotNull(message="gender is required")
+    String gender="1";
+ 
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+    
+    @NotNull(message="adress must required")
+    String address;
+    
+    
+    List<String> stringlist;
+
+    public List<String> getStringlist() {
+        
+        stringlist=new ArrayList<String>();
+        stringlist.add("kuppu");
+        stringlist.add("priya");
+        stringlist.add("anna");
+        stringlist.add("latha");
+        
+        
+        return stringlist;
+    }
+
+    
+    
+    
+    String[] plocation; 
+
+    public String[] getPlocation() {
+        return plocation;
+    }
+
+    public void setPlocation(String[] plocation) {
+        this.plocation = plocation;
+    }
+
+   
+
+    
+    
+    
+    
+    
+    
+    
+    boolean mailme;
+    int[] people;
+    String location;
+    
+    
+    String[] shift;
+
+    public String[] getShift() {
+        return shift;
+    }
+
+    public void setShift(String[] shift) {
+        this.shift = shift;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+    
+    
+ public String[] data;
+
+    public String[] getData() {
+        return data;
+    }
+
+    public void setData(String[] data) {
+        this.data = data;
+    }
+    
+   public boolean isMailme() {
+        return mailme;
+    }
+
+    public void setMailme(boolean mailme) {
+        this.mailme = mailme;
+    }
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    public String getMail(){
+        return mail1;
+    }
+    public void setMail(String mail) {
+        this.mail1 = mail;
+    }
+    public String getPassword(){
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
+     public String getPhonenum() {
+        return phonenum;
+    }
+
+    public void setPhonenum(String phonenum) {
+        this.phonenum = phonenum;
+    }
+    
+    
+    
+    public String getAddress(){
+        return address;
+    }
+    public void setAddress(String address) {
+        this.address = address;
+    }
+    
+    
+public String UservalidOrnot() {
+    if (name.equals("kuppu") && password.equals("keerthi108")) {
+			return "second";
+		} else {
+			return "failure";
+		}
+    
+ }
+    
+    
+    Map<String,String> colorlist;
+
+    public Map<String, String> getColorlist() {
+        
+        colorlist=new HashMap<String,String>();
+        colorlist.put("y","yellow");
+        colorlist.put("R","red");
+        colorlist.put("m","orange");
+        
+        
+        
+        
+        return colorlist;
+    }
+
+    
+    
+    
+            
+    
+
+    
+    
+    
+}

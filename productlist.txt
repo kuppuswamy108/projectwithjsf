@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>employee list</title>
+        <style type="text/css">
+            
+            .oddrow{
+                background-color:#ccc;
+            }
+            .evenrow{
+                 background-color:#ff8;
+            }
+            
+            
+            .Bimage{background-image:url("resources/images/lap3.jpg");}
+            
+        </style>
+        
+        
+        
+         
+            
+          
+
+            
+      
+       
+        
+        
+    </h:head>
+    <h:body styleClass="Bimage">
+        
+          <h:graphicImage library="images" name="index1.png"></h:graphicImage>
+        
+       <h2><h:outputText value="employee list"></h:outputText></h2>  
+       <f:facet name="caption" > product list table </f:facet>
+       <h:dataTable rowClasses="oddrow,evenrow" value="#{product.productlist}" var="p">
+        
+            <h:column>
+                
+                <f:facet name=" header ">ID</f:facet>
+                <h:outputText value="#{p.id}"></h:outputText>
+            </h:column>
+            
+            
+           <h:column>
+                
+               
+                <h:outputText value="#{p.name}"></h:outputText>
+                
+                
+            </h:column>
+             
+          <h:column>
+                
+                <f:facet name=" header ">ship price</f:facet>
+                <h:outputText value="#{p.price}"/>
+                
+                
+            </h:column>
+            
+            
+            
+        
+        </h:dataTable>
+        
+        
+       
+            
+            
+            
+        
+       
+        
+        
+       
+        
+        
+        
+        
+        
+        
+        
+        
+    </h:body>
+</html>
+

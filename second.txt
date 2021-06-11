@@ -1,0 +1,266 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ez="http://xmlns.jcp.org/jsf/composite/ezcomp">
+    <h:head>
+        <title>employee details</title>
+        <style>
+           .Bimage{background-image:url("resources/images/ferry.jpg");}
+           .grid-checkbox td {
+        padding: .5rem;
+        </style>
+        
+        
+    </h:head>
+    <h:body styleClass="Bimage">
+         <h2>second page</h2>
+      <hr />
+ 
+        
+        <h:graphicImage library="images" name="index1.png"></h:graphicImage>
+        
+        <div class="card">
+    <h:form>
+        <p:growl id="messages" showDetail="true"/>
+
+        <p:menuButton value="Options">
+            <p:menuitem value="Save (Non-Ajax)" action="#{menuView.save}" ajax="false" update="messages" icon="pi pi-save"/>
+            <p:menuitem value="Update" action="#{menuView.update}" update="messages" icon="pi pi-refresh"/>
+            <p:menuitem value="Delete" action="#{menuView.delete}" update="messages" icon="pi pi-times"/>
+            
+            <p:menuitem value="Website" url="https://www.solverminds.com" icon="pi pi-external-link"/>
+        </p:menuButton>
+    </h:form>
+</div>
+        
+        
+        
+        
+        
+        
+        
+
+       <h:form>
+           <table>
+               
+                 <tr>
+            <h:outputLabel value="name :" style="color:red"></h:outputLabel>
+            <h:outputText id="outtr" value="#{user.name}" style="color:red" ></h:outputText><br/>
+               </tr>
+               <tr>
+            <h:outputLabel value="phonenumber :" style="color:red"></h:outputLabel>
+            <h:outputText id="phonenum" value="#{user.phonenum}" style="color:red"></h:outputText><br/>
+               </tr>
+            
+
+               
+               
+               
+               
+               
+               <tr> <h:outputLabel for="Enter your  name :"  style="color: black">Enter your name:</h:outputLabel>  
+                   <h:inputText id="username" value="#{user.name}" required="true" requiredMessage="Username is require" >
+                   <f:validateRequired/>
+                   </h:inputText>
+                     
+                     
+                     <br/> <br/>
+               </tr>
+               
+                <tr>
+                        
+                        <h:outputLabel value="Enter your phonenum :" style="color : black"/>
+                        <h:inputText value="#{user.phonenum}" required="true" requiredMessage="phonenum must"/>
+                        <h:message for="mobile-id" style="color: red"/>  
+                        <br/><br/>
+                       
+                    </tr>
+               
+               
+                
+               
+               
+               
+               
+               
+               <tr>
+                   <h:outputLabel value="adress :"></h:outputLabel>
+                   <h:inputTextarea value="#{user.address}" required="true"></h:inputTextarea><br/><br/>
+                   
+           </tr>
+               
+               
+               <tr>
+                        
+                        <h:outputLabel value="Enter your 10 th mark % :" style="color : black"/>
+                        <h:inputText id="m10" validatorMessage="mark should be percentage and must be between 0 and  100"  value="#{user.mark}" required="true" requiredMessage="mark must">
+                        
+                           <f:validateLength minimum="2" maximum="3"/>
+                           <f:validateLongRange minimum="0" maximum="100"/>
+                           <f:validateRequired/>
+                        
+                        </h:inputText>
+                        <h:message for="m10" style="color: red"/>  
+                        <br/><br/>
+                       
+                    </tr>
+                         
+               <tr>
+                        
+                        <h:outputLabel value="Enter your 12 th mark % :" style="color : black"/>
+                        <h:inputText id="m12"  validatorMessage="mark should be percentage and must be between 0 and 100" value="#{user.num1}" required="true" requiredMessage="mark must">
+                            <f:validateLength minimum="2" maximum="3"/>
+                             <f:validateLongRange minimum="0" maximum="100"/>
+                              <f:validateRequired/>
+                                
+                </h:inputText>
+                        <h:message for="m12" style="color: red"/>  
+                        <br/><br/>
+                       
+                    </tr>
+               <tr>
+               
+                        <h:outputLabel value="Enter your college cgpa  % :" style="color : black"/>
+                        <h:inputText id="mc1"  validatorMessage="mark should be percentage and must be between 0 and 100" value="#{user.c12}" required="true" requiredMessage="mark must">
+                            <f:validateLength minimum="2" maximum="3"/>
+                             <f:validateLongRange minimum="0" maximum="100"/>
+                              <f:validateRequired/>
+                                
+                </h:inputText>
+                        <h:message for="mc1" style="color: red"/>  
+                        <br/><br/>
+                       
+                    </tr>
+                
+                        
+                         
+               
+               <div class="card">
+                    <p:outputLabel styleClass="p-d-block" style="color : black">do you want to receive mail :</p:outputLabel>
+                    <p:selectBooleanButton onLabel="Yes"  offLabel="No" value="#{user.mailme}"
+                                           onIcon="pi pi-check" offIcon="pi pi-times" style="width:6rem" /><br/><br/>
+                    
+                      <p:outputLabel styleClass="p-d-block" style="color : black">select your team :</p:outputLabel>
+                    <p:selectManyCheckbox id="grid" value="#{user.data}" layout="grid" columns="3" styleClass="grid-checkbox">
+                        <f:selectItems value="#{user.data}" var="t" itemLabel="LRP" itemValue="LRP"/>
+                        <f:selectItems value="#{user.data}" var="p" itemLabel="MACK" itemValue="2"/>
+                        <f:selectItems value="#{user.data}" var="s" itemLabel="SONATA" itemValue="3"/>
+                        <f:selectItems value="#{user.data}" var="f" itemLabel="SEDGE" itemValue="4"/>
+                         <f:selectItems value="#{user.data}" var="k" itemLabel="TESTING" itemValue="5"/>
+                         
+                        </p:selectManyCheckbox><br/>
+                      
+                      <p:outputLabel styleClass="p-d-block" style="color : black">gender :</p:outputLabel>
+                      <p:selectOneButton value="#{user.gender}">
+            <f:selectItem itemLabel="male" itemValue="1"/>
+            <f:selectItem itemLabel="female" itemValue="2"/>
+            <f:selectItem itemLabel="not perfer to say" itemValue="3"/>
+        </p:selectOneButton><br/><br/>
+                      
+           <p:outputLabel styleClass="p-d-block" style="color : black">prefered location :</p:outputLabel>            
+           
+<p:selectCheckboxMenu id="menu" value="#{user.plocation}" label="countries" style="width: 15rem"
+                                filter="true" filterMatchMode="startsWith" panelStyle="width: 15rem" scrollHeight="250">
+           
+    
+                 <f:selectItem itemValue="1" itemLabel="INDIA" />
+                 <f:selectItem itemValue="2" itemLabel="USA"/>
+                 <f:selectItem itemValue="3" itemLabel="GERMANY"/>
+                 <f:selectItem itemValue="4" itemLabel="SINGAPORE"/>
+                
+                
+        </p:selectCheckboxMenu><br/><br/>
+        
+        
+        
+           
+                 <p:outputLabel value="select your preferd laptop"/>
+                <p:selectOneListbox id="basic" value="#{user.plap}">
+                
+                   <f:selectItem itemValue="1" itemLabel="Dell" />
+                 <f:selectItem itemValue="2" itemLabel="Hp"/>
+                 <f:selectItem itemValue="3" itemLabel="lenovo"/>
+                 <f:selectItem itemValue="4" itemLabel="Acier"/>
+                 <f:selectItem itemValue="5" itemLabel="macbook"/>
+                 
+                    
+                    
+            </p:selectOneListbox><br/><br/>
+  
+            
+             <p:outputLabel value="select your shift"/>
+               <p:selectOneMenu id="option" value="#{user.shift}">
+                    <f:selectItem itemValue="1" itemLabel="night 7-2" />
+                 <f:selectItem itemValue="2" itemLabel="evening 2-5"/>
+                 <f:selectItem itemValue="3" itemLabel="afternoon"/>
+                 <f:selectItem itemValue="4" itemLabel="general shift 9-6"/>
+                 <f:selectItem itemValue="5" itemLabel="day 4-10"/>
+                
+                    <f:facet name="footer">
+                        <h:outputText value="3 options" style="font-weight:bold;"/>
+                    </f:facet>
+                </p:selectOneMenu> 
+           
+           
+                    
+                    
+                    
+               </div>
+               
+                
+           
+           
+           
+                                
+            
+             
+             
+             
+             
+
+                 
+           </table>
+           
+            <h:commandButton value = "Submit" action = "result" /><br/>
+            
+              <h:commandLink value = "back to homepage"  immediate="true" action =index /><br/>
+            
+            <h:commandButton value = "mail" action = "all" /><br/>
+            
+            
+            <h:commandButton value="Cancel" immediate="true" action="logout"/><br/>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          
+                
+                
+                
+                
+                
+                
+                
+           
+            
+             
+ 
+            
+            
+        </h:form>
+        
+        
+        
+        
+         <h:outputText value="#{user.mailme}"/>
+    </h:body>
+</html>
+

@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"  
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">  
+    <h:head>  
+        <title>login</title>
+        <style>
+           .Bimage{background-image:url("resources/images/people1.jpg");}
+            button.ui-button 
+    {
+        margin-right: .5rem;
+        
+    }
+        </style>
+    </h:head>  
+    <h:body styleClass="Bimage">  
+        
+     <h:form>  
+            
+            
+            
+              
+            
+             <h:graphicImage library="images" name="index1.png"></h:graphicImage>
+            
+             
+<h:panelGroup style = "display:block; text-align:center">
+            <div class="card">
+       
+        
+               
+                    
+                    <p:outputLabel  styleClass="p-d-block" style="color : black">Username :</p:outputLabel>
+                    <p:inputText placeholder="Username" value="#{user.name}"/>
+                            <small class="p-d-block ui-state-error">Username is not available.</small>
+
+                
+            
+            
+            </div><br/>
+            
+            
+            <div class="card">
+       
+        <div class="p-grid ui-fluid"/>
+            <div class="p-col-12 p-md-4">
+                <div class="ui-inputgroup">
+                    <span class="ui-inputgroup-addon"><i class="pi pi-user"></i></span>
+                    <p:outputLabel  styleClass="p-d-block" style="color : black">Phone number :</p:outputLabel>
+                    <p:inputText placeholder="phonenumber" value="#{user.phonenum}"/>
+                            <small class="p-d-block ui-state-error">phone number is not available.</small>
+
+                </div>
+            
+            
+                
+                  
+                
+                
+                
+            </div><br/><br/>
+        <p:outputLabel styleClass="p-d-block" style="color : black">password :</p:outputLabel>
+                <p:password id="password" value="#{user.password}" feedback="true" inline="true"/><br/><br/>
+          
+            
+           
+            
+            </div>
+            
+                              
+                             
+             
+     
+                
+             </h:panelGroup>
+    
+                
+                
+           
+    
+            <div class="card">
+                <h:panelGroup style = "display:block; text-align:center">
+       
+                
+                 <p:commandButton value="Login"   action="#{user.UservalidOrnot}"/><br/><br/>
+                 
+                <p:commandButton  immediate="true" value="Logout"  action="logout" />
+                  
+               
+                <p:commandButton  immediate="true" value="admin"  action="admin" /><br/><br/><br/>
+                
+                
+                
+                </h:panelGroup>
+                
+                
+                
+            </div>
+    
+        
+      
+           <h:button outcome="trial.xhtml" value="get request">
+                  
+                   <f:param name="username" value="kuppu"/>
+                    <f:param name="phonenum" value="1234567890"/>
+                   
+               </h:button><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        <div class="card">
+                     
+             <p:breadCrumb>
+            <p:menuitem value="Electronics"/>
+            <p:menuitem value="About us" immediate="true" url="https://www.solverminds.com/"/>
+            <p:menuitem value="contact" url="https://www.solverminds.com/contacts/" />
+            <p:menuitem value="privacy policy" url="https://www.solverminds.com/privacy-policy/"/>
+            <p:menuitem value="locations"/>
+            <p:menuitem value="current address"/>
+        </p:breadCrumb>
+               
+               
+               
+                 </div><br/>
+          
+               
+               
+               
+                
+              
+               
+                
+                
+                
+                
+              
+                
+            
+                     
+        </h:form>  
+                
+        
+         
+        
+        
+                
+    </h:body>  
+</html>  
+        

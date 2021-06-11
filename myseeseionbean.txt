@@ -1,0 +1,58 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package managedbean;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+
+
+/**
+ *
+ * @author kuppuswamy.annadurai
+ */
+@ManagedBean(name="product")
+@SessionScoped
+public class mysessionbean {
+  
+    
+    List<product> productlist;
+
+    public List<product> getProductlist() {
+        
+        productlist=new ArrayList<>();
+        productlist.add(new product(1,"kuppu",30000));
+        productlist.add(new product(2,"pranesh",30231));
+        productlist.add(new product(3,"pravin",32000));
+        productlist.add(new product(4,"mani",32500));
+        productlist.add(new product(5,"traj",30000));
+        productlist.add(new product(6,"varun",30231));
+        
+        
+        
+        
+        
+        return productlist;
+    }
+    
+    
+    
+    int number=new Random().nextInt();
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+    
+    
+    
+    
+}
